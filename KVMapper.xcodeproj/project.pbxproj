@@ -15,7 +15,12 @@
 		180ABBD0170B559700C1B486 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180ABBBD170B559300C1B486 /* Foundation.framework */; };
 		180ABBD3170B559700C1B486 /* libKVMapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 180ABBBA170B559300C1B486 /* libKVMapper.a */; };
 		180ABBD9170B559700C1B486 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 180ABBD7170B559700C1B486 /* InfoPlist.strings */; };
-		180ABBDC170B559700C1B486 /* KVMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABBDB170B559700C1B486 /* KVMapperTests.m */; };
+		180ABC06170B8BA400C1B486 /* KVMapperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC05170B8BA400C1B486 /* KVMapperSpec.m */; };
+		180ABC0B170B8BB800C1B486 /* TestAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC08170B8BB800C1B486 /* TestAddress.m */; };
+		180ABC0C170B8BB800C1B486 /* TestPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC0A170B8BB800C1B486 /* TestPerson.m */; };
+		180ABC0F170B8BBF00C1B486 /* DifferentTestPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC0E170B8BBF00C1B486 /* DifferentTestPerson.m */; };
+		180ABC12170B8BDB00C1B486 /* KVMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC11170B8BDB00C1B486 /* KVMap.m */; };
+		180ABC15170B8BE700C1B486 /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC14170B8BE700C1B486 /* Transformers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +57,17 @@
 		180ABBCE170B559700C1B486 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		180ABBD6170B559700C1B486 /* KVMapperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KVMapperTests-Info.plist"; sourceTree = "<group>"; };
 		180ABBD8170B559700C1B486 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		180ABBDA170B559700C1B486 /* KVMapperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVMapperTests.h; sourceTree = "<group>"; };
-		180ABBDB170B559700C1B486 /* KVMapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVMapperTests.m; sourceTree = "<group>"; };
+		180ABC05170B8BA400C1B486 /* KVMapperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVMapperSpec.m; sourceTree = "<group>"; };
+		180ABC07170B8BB800C1B486 /* TestAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAddress.h; sourceTree = "<group>"; };
+		180ABC08170B8BB800C1B486 /* TestAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAddress.m; sourceTree = "<group>"; };
+		180ABC09170B8BB800C1B486 /* TestPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPerson.h; sourceTree = "<group>"; };
+		180ABC0A170B8BB800C1B486 /* TestPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPerson.m; sourceTree = "<group>"; };
+		180ABC0D170B8BBF00C1B486 /* DifferentTestPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DifferentTestPerson.h; sourceTree = "<group>"; };
+		180ABC0E170B8BBF00C1B486 /* DifferentTestPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifferentTestPerson.m; sourceTree = "<group>"; };
+		180ABC10170B8BDB00C1B486 /* KVMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVMap.h; sourceTree = "<group>"; };
+		180ABC11170B8BDB00C1B486 /* KVMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVMap.m; sourceTree = "<group>"; };
+		180ABC13170B8BE700C1B486 /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
+		180ABC14170B8BE700C1B486 /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +127,10 @@
 			children = (
 				180ABBC2170B559300C1B486 /* KVMapper.h */,
 				180ABBC4170B559300C1B486 /* KVMapper.m */,
+				180ABC10170B8BDB00C1B486 /* KVMap.h */,
+				180ABC11170B8BDB00C1B486 /* KVMap.m */,
+				180ABC13170B8BE700C1B486 /* Transformers.h */,
+				180ABC14170B8BE700C1B486 /* Transformers.m */,
 				180ABBC0170B559300C1B486 /* Supporting Files */,
 			);
 			path = KVMapper;
@@ -129,8 +147,13 @@
 		180ABBD4170B559700C1B486 /* KVMapperTests */ = {
 			isa = PBXGroup;
 			children = (
-				180ABBDA170B559700C1B486 /* KVMapperTests.h */,
-				180ABBDB170B559700C1B486 /* KVMapperTests.m */,
+				180ABC0D170B8BBF00C1B486 /* DifferentTestPerson.h */,
+				180ABC0E170B8BBF00C1B486 /* DifferentTestPerson.m */,
+				180ABC07170B8BB800C1B486 /* TestAddress.h */,
+				180ABC08170B8BB800C1B486 /* TestAddress.m */,
+				180ABC09170B8BB800C1B486 /* TestPerson.h */,
+				180ABC0A170B8BB800C1B486 /* TestPerson.m */,
+				180ABC05170B8BA400C1B486 /* KVMapperSpec.m */,
 				180ABBD5170B559700C1B486 /* Supporting Files */,
 			);
 			path = KVMapperTests;
@@ -244,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				180ABBC5170B559300C1B486 /* KVMapper.m in Sources */,
+				180ABC12170B8BDB00C1B486 /* KVMap.m in Sources */,
+				180ABC15170B8BE700C1B486 /* Transformers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				180ABBDC170B559700C1B486 /* KVMapperTests.m in Sources */,
+				180ABC06170B8BA400C1B486 /* KVMapperSpec.m in Sources */,
+				180ABC0B170B8BB800C1B486 /* TestAddress.m in Sources */,
+				180ABC0C170B8BB800C1B486 /* TestPerson.m in Sources */,
+				180ABC0F170B8BBF00C1B486 /* DifferentTestPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +425,7 @@
 				180ABBE1170B559700C1B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		180ABBE2170B559700C1B486 /* Build configuration list for PBXNativeTarget "KVMapperTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +434,7 @@
 				180ABBE4170B559700C1B486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
