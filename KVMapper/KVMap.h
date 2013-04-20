@@ -10,8 +10,6 @@
 
 @interface KVMap : NSObject
 
-//@property (nonatomic, strong) NSString *externalKey;
-//@property (nonatomic, strong) NSString *internalKey;
 @property (nonatomic, copy) NSString *(^keyTransformationBlock)(NSString *);
 @property (nonatomic, copy) id (^valueTransformationBlock)(id);
 
