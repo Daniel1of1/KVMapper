@@ -21,6 +21,8 @@
 		180ABC0F170B8BBF00C1B486 /* DifferentTestPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC0E170B8BBF00C1B486 /* DifferentTestPerson.m */; };
 		180ABC12170B8BDB00C1B486 /* KVMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC11170B8BDB00C1B486 /* KVMap.m */; };
 		180ABC15170B8BE700C1B486 /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC14170B8BE700C1B486 /* Transformers.m */; };
+		4B452D545366427A87D8D16C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46936F32E5E247D0A344B213 /* libPods.a */; };
+		D1D3855AAD724FC79402D2D9 /* libPods-KVMapperTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CD947681024C929DFCBA54 /* libPods-KVMapperTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,10 @@
 		180ABC11170B8BDB00C1B486 /* KVMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVMap.m; sourceTree = "<group>"; };
 		180ABC13170B8BE700C1B486 /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
 		180ABC14170B8BE700C1B486 /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
+		34FC6171A47C4FF28E4BD1DC /* Pods-KVMapperTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVMapperTests.xcconfig"; path = "Pods/Pods-KVMapperTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		46936F32E5E247D0A344B213 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		717D1AD4706F4E7DBB7E681B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		A3CD947681024C929DFCBA54 /* libPods-KVMapperTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KVMapperTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				180ABBBE170B559300C1B486 /* Foundation.framework in Frameworks */,
+				4B452D545366427A87D8D16C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +94,7 @@
 				180ABBCF170B559700C1B486 /* UIKit.framework in Frameworks */,
 				180ABBD0170B559700C1B486 /* Foundation.framework in Frameworks */,
 				180ABBD3170B559700C1B486 /* libKVMapper.a in Frameworks */,
+				D1D3855AAD724FC79402D2D9 /* libPods-KVMapperTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +108,8 @@
 				180ABBD4170B559700C1B486 /* KVMapperTests */,
 				180ABBBC170B559300C1B486 /* Frameworks */,
 				180ABBBB170B559300C1B486 /* Products */,
+				717D1AD4706F4E7DBB7E681B /* Pods.xcconfig */,
+				34FC6171A47C4FF28E4BD1DC /* Pods-KVMapperTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +128,8 @@
 				180ABBBD170B559300C1B486 /* Foundation.framework */,
 				180ABBCC170B559700C1B486 /* SenTestingKit.framework */,
 				180ABBCE170B559700C1B486 /* UIKit.framework */,
+				46936F32E5E247D0A344B213 /* libPods.a */,
+				A3CD947681024C929DFCBA54 /* libPods-KVMapperTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180ABBDF170B559700C1B486 /* Build configuration list for PBXNativeTarget "KVMapper" */;
 			buildPhases = (
+				CEB59E2B96404A4DAAC91159 /* Check Pods Manifest.lock */,
 				180ABBB6170B559300C1B486 /* Sources */,
 				180ABBB7170B559300C1B486 /* Frameworks */,
 				180ABBB8170B559300C1B486 /* CopyFiles */,
+				D9D25CF67176469AA4E59553 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,10 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180ABBE2170B559700C1B486 /* Build configuration list for PBXNativeTarget "KVMapperTests" */;
 			buildPhases = (
+				935D8C674A254465B8DF55C2 /* Check Pods Manifest.lock */,
 				180ABBC6170B559700C1B486 /* Sources */,
 				180ABBC7170B559700C1B486 /* Frameworks */,
 				180ABBC8170B559700C1B486 /* Resources */,
 				180ABBC9170B559700C1B486 /* ShellScript */,
+				7AB5209F98C0425EB950D865 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,6 +274,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		7AB5209F98C0425EB950D865 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-KVMapperTests-resources.sh\"\n";
+		};
+		935D8C674A254465B8DF55C2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		CEB59E2B96404A4DAAC91159 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+		};
+		D9D25CF67176469AA4E59553 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -354,11 +426,13 @@
 		};
 		180ABBE0170B559700C1B486 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 717D1AD4706F4E7DBB7E681B /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/KVMapper.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -366,11 +440,13 @@
 		};
 		180ABBE1170B559700C1B486 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 717D1AD4706F4E7DBB7E681B /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/KVMapper.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -378,14 +454,13 @@
 		};
 		180ABBE3170B559700C1B486 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34FC6171A47C4FF28E4BD1DC /* Pods-KVMapperTests.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
 				INFOPLIST_FILE = "KVMapperTests/KVMapperTests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -393,14 +468,13 @@
 		};
 		180ABBE4170B559700C1B486 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34FC6171A47C4FF28E4BD1DC /* Pods-KVMapperTests.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
 				INFOPLIST_FILE = "KVMapperTests/KVMapperTests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
