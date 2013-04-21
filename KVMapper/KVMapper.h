@@ -16,11 +16,6 @@
 @property (nonatomic, strong) id (^defaultValueTransformerBlock)(id);
 @property (nonatomic, strong) NSDictionary *objectMaps;
 
--(NSDictionary *)mappedDictionary:(NSDictionary *)externalDict withKeyMappings:(NSDictionary *)keyMapppings;
-
--(NSDictionary *)mappedKey:(NSString *)key andValue:(id)value withMapping:(KeyMapping *)keyMapThing;
-
--(NSDictionary *)mappedDictionaryWithDictionary:(NSDictionary *)externalDict ObjectMap:(NSDictionary *)objectMapsDict;
 
 +(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock;
 

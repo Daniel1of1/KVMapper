@@ -67,6 +67,7 @@
 SPEC_BEGIN(KVMapperSpec)
 
 describe(@"object mapper", ^{
+    
     NSDictionary *correctDict=@{@"firstName" : @"bob", @"LastName" : @"smith", @"middle_name" : @"middle" , @"mySUPERmiddleNaMe" : @"super-middley", @"address" : @{@"street_name" : @"love street", @"house_number" : @123} , @"arrayOfStuff" : @[@1,@2,@3,@4], @"array_of_addresses":@[@{@"street_name" : @"love street", @"house_number" : @14354},@{@"street_name" : @"love street", @"house_number" : @123}]};
     
     NSDictionary *addressDict=@{@"street_name" : @"love street", @"house_number" : @123};
