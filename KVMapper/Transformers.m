@@ -23,18 +23,18 @@
     return [self camelCaseFromComponents:keyComponents];
 }
 
-+(NSString *)camelCaseFromComponents:(NSArray *)keyComponents{
-    NSMutableString *camelCaseKey=[NSMutableString string];
-    for (NSString *component in keyComponents) {
++(NSString *)camelCaseFromComponents:(NSArray *)components{
+    NSMutableString *camelCaseString=[NSMutableString string];
+    for (NSString *component in components) {
         NSString *firstLetterUpper=[[component substringToIndex:1] uppercaseString];
         NSString *restOfComponent=[component substringFromIndex:1];
         NSString *newComponent=[NSString stringWithFormat:@"%@%@",firstLetterUpper,restOfComponent];
-        [camelCaseKey appendString:newComponent];
+        [camelCaseString appendString:newComponent];
     }
-    NSString *firstLetterLower=[[camelCaseKey substringToIndex:1] lowercaseString];
-    [camelCaseKey replaceCharactersInRange:NSMakeRange(0, 1) withString:firstLetterLower];
+    NSString *firstLetterLower=[[camelCaseString substringToIndex:1] lowercaseString];
+    [camelCaseString replaceCharactersInRange:NSMakeRange(0, 1) withString:firstLetterLower];
     
-    return camelCaseKey;
+    return camelCaseString;
 }
 
 @end
