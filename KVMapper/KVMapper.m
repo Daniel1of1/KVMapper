@@ -11,10 +11,6 @@
 
 @implementation KVMapper
 
-
-
-
-
 +(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     for (NSString *key in keys) {
@@ -25,8 +21,16 @@
     return dict;
 }
 
-
-
++(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock defaultValueTransformer:(id (^)(id))defaultValueTransformationBlock{
+    NSMutableDictionary *dict=[NSMutableDictionary dictionary];
+    for (NSString *key in keys) {
+        KVMap *kvMap=[[KVMap alloc] init];
+        kvMap.keyTransformationBlock=defaultKeyTransformationBlock;
+        kvMap.valueTransformationBlock=defaultValueTransformationBlock;
+        [dict setValue:kvMap forKey:key];
+    }
+    return dict;
+}
 
 +(NSDictionary *)mappedKey:(NSString *)key andValue:(id)value withMapping:(KVMap *)objectMap{
     NSString *mappedKey=objectMap.keyTransformationBlock ?objectMap.keyTransformationBlock(key): key;
@@ -37,17 +41,14 @@
     return dict;
 }
 
-
 +(NSDictionary *)mappedDictionaryWithDictionary:(NSDictionary *)externalDict ObjectMap:(NSDictionary *)objectMapsDict{
     
     NSMutableDictionary *mappedDict=[NSMutableDictionary dictionary];
     
     [externalDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        //create the new key-value paor
+        //create the new key-value pair
         NSDictionary *mappedKVPair=[self mappedKey:key andValue:obj withMapping:objectMapsDict[key]];
-        // remove the old value (must be done first since if there is a value change but no keychange we can remove the kv entry we wanted)
-        //[mappedDict removeObjectForKey:key];
-        // add the new value
+        // add the new value to our new dictionary
         [mappedDict addEntriesFromDictionary:mappedKVPair];
         
     }];

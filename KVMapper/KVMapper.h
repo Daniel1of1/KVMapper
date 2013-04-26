@@ -12,14 +12,11 @@
 
 @interface KVMapper : NSObject
 
-@property (nonatomic, strong) NSString *(^defaultKeyTransformationBlock)(NSString *);
-@property (nonatomic, strong) id (^defaultValueTransformerBlock)(id);
 @property (nonatomic, strong) NSDictionary *objectMaps;
 
-
 +(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock;
++(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock defaultValueTransformer:(id (^)(id))defaultValueTransformationBlock;
 
 +(NSDictionary *)mappedDictionaryWithDictionary:(NSDictionary *)externalDict ObjectMap:(NSDictionary *)objectMapsDict;
 
-+(void)applyMap:(NSDictionary *)map toDictionary:(NSDictionary *)dictionary;
 @end
