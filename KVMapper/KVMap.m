@@ -10,4 +10,13 @@
 
 @implementation KVMap
 
+-(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^)(id))valueTransformationBlock{
+    
+    if (self==[super init]) {
+        self.keyTransformationBlock=keyTransformationBlock;
+        self.valueTransformationBlock=valueTransformationBlock;
+    }
+    return self;
+}
+
 @end
