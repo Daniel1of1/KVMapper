@@ -24,17 +24,17 @@
 }
 
 +(NSString *)llamaCasFromComponents:(NSArray *)components{
-    NSMutableString *camelCaseString=[NSMutableString string];
+    NSMutableString *llamaCaseString=[NSMutableString string];
     for (NSString *component in components) {
         NSString *firstLetterUpper=[[component substringToIndex:1] uppercaseString];
         NSString *restOfComponent=[component substringFromIndex:1];
         NSString *newComponent=[NSString stringWithFormat:@"%@%@",firstLetterUpper,restOfComponent];
-        [camelCaseString appendString:newComponent];
+        [llamaCaseString appendString:newComponent];
     }
-    NSString *firstLetterLower=[[camelCaseString substringToIndex:1] lowercaseString];
-    [camelCaseString replaceCharactersInRange:NSMakeRange(0, 1) withString:firstLetterLower];
+    NSString *firstLetterLower=[[llamaCaseString substringToIndex:1] lowercaseString];
+    [llamaCaseString replaceCharactersInRange:NSMakeRange(0, 1) withString:firstLetterLower];
     
-    return camelCaseString;
+    return llamaCaseString;
 }
 
 @end
