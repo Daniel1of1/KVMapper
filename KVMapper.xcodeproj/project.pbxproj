@@ -20,7 +20,7 @@
 		180ABC0C170B8BB800C1B486 /* TestPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC0A170B8BB800C1B486 /* TestPerson.m */; };
 		180ABC0F170B8BBF00C1B486 /* DifferentTestPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC0E170B8BBF00C1B486 /* DifferentTestPerson.m */; };
 		180ABC12170B8BDB00C1B486 /* KVMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC11170B8BDB00C1B486 /* KVMap.m */; };
-		180ABC15170B8BE700C1B486 /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 180ABC14170B8BE700C1B486 /* Transformers.m */; };
+		18A140C7172AD20F0000977D /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A140C6172AD20F0000977D /* Transformers.m */; };
 		4B452D545366427A87D8D16C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46936F32E5E247D0A344B213 /* libPods.a */; };
 		D1D3855AAD724FC79402D2D9 /* libPods-KVMapperTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CD947681024C929DFCBA54 /* libPods-KVMapperTests.a */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,6 @@
 /* Begin PBXFileReference section */
 		180ABBBA170B559300C1B486 /* libKVMapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKVMapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		180ABBBD170B559300C1B486 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		180ABBC1170B559300C1B486 /* KVMapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KVMapper-Prefix.pch"; sourceTree = "<group>"; };
 		180ABBC2170B559300C1B486 /* KVMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVMapper.h; sourceTree = "<group>"; };
 		180ABBC4170B559300C1B486 /* KVMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVMapper.m; sourceTree = "<group>"; };
 		180ABBCB170B559700C1B486 /* KVMapperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVMapperTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,8 +67,9 @@
 		180ABC0E170B8BBF00C1B486 /* DifferentTestPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DifferentTestPerson.m; sourceTree = "<group>"; };
 		180ABC10170B8BDB00C1B486 /* KVMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVMap.h; sourceTree = "<group>"; };
 		180ABC11170B8BDB00C1B486 /* KVMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVMap.m; sourceTree = "<group>"; };
-		180ABC13170B8BE700C1B486 /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
-		180ABC14170B8BE700C1B486 /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
+		18A140C4172AD2050000977D /* KVMapper-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KVMapper-Prefix.pch"; path = "supportingFiles/KVMapper-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		18A140C5172AD20F0000977D /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transformers.h; path = supportingFiles/Transformers.h; sourceTree = SOURCE_ROOT; };
+		18A140C6172AD20F0000977D /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transformers.m; path = supportingFiles/Transformers.m; sourceTree = SOURCE_ROOT; };
 		34FC6171A47C4FF28E4BD1DC /* Pods-KVMapperTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVMapperTests.xcconfig"; path = "Pods/Pods-KVMapperTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		46936F32E5E247D0A344B213 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		717D1AD4706F4E7DBB7E681B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -141,8 +141,6 @@
 				180ABBC4170B559300C1B486 /* KVMapper.m */,
 				180ABC10170B8BDB00C1B486 /* KVMap.h */,
 				180ABC11170B8BDB00C1B486 /* KVMap.m */,
-				180ABC13170B8BE700C1B486 /* Transformers.h */,
-				180ABC14170B8BE700C1B486 /* Transformers.m */,
 				180ABBC0170B559300C1B486 /* Supporting Files */,
 			);
 			path = KVMapper;
@@ -151,7 +149,9 @@
 		180ABBC0170B559300C1B486 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				180ABBC1170B559300C1B486 /* KVMapper-Prefix.pch */,
+				18A140C5172AD20F0000977D /* Transformers.h */,
+				18A140C6172AD20F0000977D /* Transformers.m */,
+				18A140C4172AD2050000977D /* KVMapper-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 			files = (
 				180ABBC5170B559300C1B486 /* KVMapper.m in Sources */,
 				180ABC12170B8BDB00C1B486 /* KVMap.m in Sources */,
-				180ABC15170B8BE700C1B486 /* Transformers.m in Sources */,
+				18A140C7172AD20F0000977D /* Transformers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +431,7 @@
 				DSTROOT = /tmp/KVMapper.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
+				GCC_PREFIX_HEADER = "supportingFiles/KVMapper-Prefix.pch";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -445,7 +445,7 @@
 				DSTROOT = /tmp/KVMapper.dst;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
+				GCC_PREFIX_HEADER = "supportingFiles/KVMapper-Prefix.pch";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -458,7 +458,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
+				GCC_PREFIX_HEADER = "supportingFiles/KVMapper-Prefix.pch";
 				INFOPLIST_FILE = "KVMapperTests/KVMapperTests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -472,7 +472,7 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KVMapper/KVMapper-Prefix.pch";
+				GCC_PREFIX_HEADER = "supportingFiles/KVMapper-Prefix.pch";
 				INFOPLIST_FILE = "KVMapperTests/KVMapperTests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
