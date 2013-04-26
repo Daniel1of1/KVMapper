@@ -17,6 +17,6 @@
 +(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock;
 +(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock defaultValueTransformer:(id (^)(id))defaultValueTransformationBlock;
 
-+(NSDictionary *)mappedDictionaryWithDictionary:(NSDictionary *)externalDict ObjectMap:(NSDictionary *)objectMapsDict;
++(NSDictionary *)mappedDictionaryWithDictionary:(NSDictionary *)inputDict ObjectMap:(NSDictionary *)objectMapsDict;
 
 @end

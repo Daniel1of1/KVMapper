@@ -16,14 +16,14 @@
     NSLog(@"couldn't set value: %@ for undefkey:%@",[value description],key);
 }
 
-+(NSString *)normalizedKey:(NSString *)inKey{
++(NSString *)snakeToLlamaCase:(NSString *)inKey{
     
     NSArray *keyComponents=[inKey componentsSeparatedByString:@"_"];
     
-    return [self camelCaseFromComponents:keyComponents];
+    return [self llamaCasFromComponents:keyComponents];
 }
 
-+(NSString *)camelCaseFromComponents:(NSArray *)components{
++(NSString *)llamaCasFromComponents:(NSArray *)components{
     NSMutableString *camelCaseString=[NSMutableString string];
     for (NSString *component in components) {
         NSString *firstLetterUpper=[[component substringToIndex:1] uppercaseString];

@@ -80,7 +80,7 @@ describe(@"object mapper", ^{
     
     it(@"creates correct key transformation kvmaps", ^{
         NSString *(^correctKeyTransformerBlock)(NSString *)=^(NSString *inKey){
-            return [Transformers normalizedKey:inKey];
+            return [Transformers snakeToLlamaCase:inKey];
         };
         
         NSDictionary *personMappingDict=[KVMapper KVMapsForKeys:correctDict.allKeys defaultKeyTransformer:correctKeyTransformerBlock];
@@ -97,7 +97,7 @@ describe(@"object mapper", ^{
     
     it(@"creates correct key and value transformation kvmaps", ^{
         NSString *(^correctKeyTransformerBlock)(NSString *)=^(NSString *inKey){
-            return [Transformers normalizedKey:inKey];
+            return [Transformers snakeToLlamaCase:inKey];
         };
         
         id (^correctValueTransformationBlock)(id)=^(id inValue){
@@ -170,12 +170,12 @@ describe(@"object mapper", ^{
         
         //basic mapping
         NSMutableDictionary *personMapping=[[KVMapper KVMapsForKeys:dictToMap.allKeys defaultKeyTransformer:^NSString *(NSString *inKey) {
-            return [Transformers normalizedKey:inKey];
+            return [Transformers snakeToLlamaCase:inKey];
         }] mutableCopy];
         
         //mappingDict for address class
         NSMutableDictionary *addressMappingDict=[[KVMapper KVMapsForKeys:@[@"street_name",@"house_number"] defaultKeyTransformer:^NSString *(NSString *inKey) {
-            return [Transformers normalizedKey:inKey];
+            return [Transformers snakeToLlamaCase:inKey];
         }] mutableCopy];
         
         //map for address key
@@ -191,7 +191,7 @@ describe(@"object mapper", ^{
         
         //mapping for addrassArray
         KVMap *addressArrayMap=[[KVMap alloc] init];
-        addressArrayMap.keyTransformationBlock=^(NSString *inputKey){return [Transformers normalizedKey:inputKey];};
+        addressArrayMap.keyTransformationBlock=^(NSString *inputKey){return [Transformers snakeToLlamaCase:inputKey];};
         
         addressArrayMap.valueTransformationBlock=(id)^(NSArray *input){
             NSMutableArray *newArray=[NSMutableArray array];
@@ -221,6 +221,7 @@ describe(@"object mapper", ^{
             [[obj1 should] equal:obj2];
         }
     });
+
 });
 
 

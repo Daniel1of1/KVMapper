@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Transformers : NSObject
-+(NSString *)normalizedKey:(NSString *)inKey;
++(NSString *)snakeToLlamaCase:(NSString *)inKey;
 
 @end

@@ -13,4 +13,6 @@
 @property (nonatomic, copy) NSString *(^keyTransformationBlock)(NSString *);
 @property (nonatomic, copy) id (^valueTransformationBlock)(id);
 
+-(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^) (id))valueTransformationBlock;
+
 @end
