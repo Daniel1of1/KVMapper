@@ -95,6 +95,38 @@ describe(@"object mapper", ^{
         }
     });
     
+    it(@"creates correct key and value transformation kvmaps", ^{
+        NSString *(^correctKeyTransformerBlock)(NSString *)=^(NSString *inKey){
+            return [Transformers normalizedKey:inKey];
+        };
+        
+        id (^correctValueTransformationBlock)(id)=^(id inValue){
+            NSURL *url=[NSURL URLWithString:inValue];
+            return url;
+        };
+        
+        NSDictionary *testDict=@{
+                                 @"some_key_one": @"https://thishouldbeaurlone.com",
+                                 @"some_key_two": @"https://thishouldbeaurltwo.com",
+                                 @"some_key_three": @"https://thishouldbeaurlthree.com",
+                                 @"some_key_four": @"https://thishouldbeaurlfour.com"
+                                 };
+        
+        NSDictionary *personMappingDict=[KVMapper KVMapsForKeys:testDict.allKeys defaultKeyTransformer:correctKeyTransformerBlock defaultValueTransformer:correctValueTransformationBlock];
+        
+        //we get the right keys
+        [[testDict.allKeys should] equal:personMappingDict.allKeys];
+        
+        //it sets the right mapping
+        for(NSString *key in personMappingDict){
+            KVMap *kvMap=personMappingDict[key];
+            [[kvMap.keyTransformationBlock(key) should] equal:correctKeyTransformerBlock(key)];
+            id transformedVal=kvMap.valueTransformationBlock(testDict[key]);
+            id correctVal=correctValueTransformationBlock(testDict[key]);
+            [[transformedVal should] equal:correctVal];
+        }
+    });
+    
     it(@"applies kvMap keyValue transformations", ^{
         NSDictionary *dictToBeMapped=@{
         @"firstThing" : @4,
