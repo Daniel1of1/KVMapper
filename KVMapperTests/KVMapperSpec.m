@@ -83,7 +83,7 @@ describe(@"object mapper", ^{
             return [Transformers snakeToLlamaCase:inKey];
         };
         
-        NSDictionary *personMappingDict=[KVMapper KVMapsForKeys:correctDict.allKeys defaultKeyTransformer:correctKeyTransformerBlock];
+        NSDictionary *personMappingDict=[KVMapper mappingDictionaryForKeys:correctDict.allKeys defaultKeyTransformer:correctKeyTransformerBlock];
         
         //we get the right keys
         [[correctDict.allKeys should] equal:personMappingDict.allKeys];
@@ -112,7 +112,7 @@ describe(@"object mapper", ^{
                                  @"some_key_four": @"https://thishouldbeaurlfour.com"
                                  };
         
-        NSDictionary *personMappingDict=[KVMapper KVMapsForKeys:testDict.allKeys defaultKeyTransformer:correctKeyTransformerBlock defaultValueTransformer:correctValueTransformationBlock];
+        NSDictionary *personMappingDict=[KVMapper mappingDictionaryForKeys:testDict.allKeys defaultKeyTransformer:correctKeyTransformerBlock defaultValueTransformer:correctValueTransformationBlock];
         
         //we get the right keys
         [[testDict.allKeys should] equal:personMappingDict.allKeys];
@@ -169,12 +169,12 @@ describe(@"object mapper", ^{
         NSDictionary *dictToMap=@{@"firstName" : @"bob", @"LastName" : @"smith", @"middle_name" : @"middle" , @"mySUPERmiddleNaMe" : @"super-middley", @"address" : @{@"street_name" : @"love street", @"house_number" : @123} , @"arrayOfStuff" : @[@1,@2,@3,@4], @"array_of_addresses":@[@{@"street_name" : @"love street", @"house_number" : @14354},@{@"street_name" : @"love street", @"house_number" : @123}]};
         
         //basic mapping
-        NSMutableDictionary *personMapping=[[KVMapper KVMapsForKeys:dictToMap.allKeys defaultKeyTransformer:^NSString *(NSString *inKey) {
+        NSMutableDictionary *personMapping=[[KVMapper mappingDictionaryForKeys:dictToMap.allKeys defaultKeyTransformer:^NSString *(NSString *inKey) {
             return [Transformers snakeToLlamaCase:inKey];
         }] mutableCopy];
         
         //mappingDict for address class
-        NSMutableDictionary *addressMappingDict=[[KVMapper KVMapsForKeys:@[@"street_name",@"house_number"] defaultKeyTransformer:^NSString *(NSString *inKey) {
+        NSMutableDictionary *addressMappingDict=[[KVMapper mappingDictionaryForKeys:@[@"street_name",@"house_number"] defaultKeyTransformer:^NSString *(NSString *inKey) {
             return [Transformers snakeToLlamaCase:inKey];
         }] mutableCopy];
         

@@ -11,7 +11,7 @@
 
 @implementation KVMapper
 
-+(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock{
++(NSDictionary *)mappingDictionaryForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     for (NSString *key in keys) {
         KVMap *kvMap=[[KVMap alloc] init];
@@ -21,7 +21,7 @@
     return dict;
 }
 
-+(NSDictionary *)KVMapsForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock defaultValueTransformer:(id (^)(id))defaultValueTransformationBlock{
++(NSDictionary *)mappingDictionaryForKeys:(NSArray *)keys defaultKeyTransformer:(NSString *(^)(NSString *))defaultKeyTransformationBlock defaultValueTransformer:(id (^)(id))defaultValueTransformationBlock{
     NSMutableDictionary *dict=[NSMutableDictionary dictionary];
     for (NSString *key in keys) {
         KVMap *kvMap=[[KVMap alloc] init];
