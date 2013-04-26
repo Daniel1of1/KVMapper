@@ -49,7 +49,7 @@
 
 -(void)populateWithDictionary:(NSDictionary *)dictionary map:(NSDictionary *)objectMap{
     
-    NSDictionary *amappedDict=[KVMapper mappedDictionaryWithDictionary:dictionary ObjectMap:objectMap];
+    NSDictionary *amappedDict=[KVMapper mappedDictionaryWithInputDictionary:dictionary mappingDictionary:objectMap];
     
     [self setValuesForKeysWithDictionary:amappedDict];
 }
@@ -159,7 +159,7 @@ describe(@"object mapper", ^{
         @"secondThing" : mapForSecondThing
         };
         
-        NSDictionary *testDict=[KVMapper mappedDictionaryWithDictionary:dictToBeMapped ObjectMap:kvMappingsDict];
+        NSDictionary *testDict=[KVMapper mappedDictionaryWithInputDictionary:dictToBeMapped mappingDictionary:kvMappingsDict];
         
         [[testDict should] equal:correctDict];
     });
@@ -181,7 +181,7 @@ describe(@"object mapper", ^{
         //map for address key
         KVMap *addressMap=[[KVMap alloc] init];
         addressMap.valueTransformationBlock=(id)^(NSDictionary *inputDict){
-            NSDictionary *properAddressDict=[KVMapper mappedDictionaryWithDictionary:inputDict ObjectMap:addressMappingDict];
+            NSDictionary *properAddressDict=[KVMapper mappedDictionaryWithInputDictionary:inputDict mappingDictionary:addressMappingDict];
             return [TestAddress objectWithDictionary:properAddressDict];
         };
         
@@ -196,7 +196,7 @@ describe(@"object mapper", ^{
         addressArrayMap.valueTransformationBlock=(id)^(NSArray *input){
             NSMutableArray *newArray=[NSMutableArray array];
             for (id object in input) {
-                [newArray addObject:[TestAddress objectWithDictionary:[KVMapper mappedDictionaryWithDictionary:object ObjectMap:addressMappingDict]]];
+                [newArray addObject:[TestAddress objectWithDictionary:[KVMapper mappedDictionaryWithInputDictionary:object mappingDictionary:addressMappingDict]]];
             }
             return newArray;
         };
@@ -213,7 +213,7 @@ describe(@"object mapper", ^{
         
         NSDictionary *correctDict=@{@"firstName" : @"bob", @"lastName" : @"smith", @"middleName" : @"middle" , @"mySuperMiddleName" : @"super-middley", @"address" :[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @123}]  , @"arrayOfStuff" : @[@1,@2,@3,@4], @"arrayOfAddresses":@[[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @14354}],[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @123}]]};
         
-        NSDictionary *mappedDict=[KVMapper mappedDictionaryWithDictionary:dictToMap ObjectMap:personMapping];
+        NSDictionary *mappedDict=[KVMapper mappedDictionaryWithInputDictionary:dictToMap mappingDictionary:personMapping];
         
         for(NSString *key in correctDict){
             id obj1=mappedDict[key];

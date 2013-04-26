@@ -41,7 +41,7 @@
     return dict;
 }
 
-+(NSDictionary *)mappedDictionaryWithDictionary:(NSDictionary *)inputDict ObjectMap:(NSDictionary *)objectMapsDict{
++(NSDictionary *)mappedDictionaryWithInputDictionary:(NSDictionary *)inputDict mappingDictionary:(NSDictionary *)objectMapsDict{
     
     NSMutableDictionary *mappedDict=[NSMutableDictionary dictionary];
     
