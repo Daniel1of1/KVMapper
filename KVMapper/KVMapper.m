@@ -41,13 +41,13 @@
     return dict;
 }
 
-+(NSDictionary *)mappedDictionaryWithInputDictionary:(NSDictionary *)inputDict mappingDictionary:(NSDictionary *)objectMapsDict{
++(NSDictionary *)mappedDictionaryWithInputDictionary:(NSDictionary *)inputDict mappingDictionary:(NSDictionary *)mappingDict{
     
     NSMutableDictionary *mappedDict=[NSMutableDictionary dictionary];
     
     [inputDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         //create the new key-value pair
-        NSDictionary *mappedKVPair=[self mappedKey:key andValue:obj withMapping:objectMapsDict[key]];
+        NSDictionary *mappedKVPair=[self mappedKey:key andValue:obj withMapping:mappingDict[key]];
         // add the new value to our new dictionary
         [mappedDict addEntriesFromDictionary:mappedKVPair];
         
