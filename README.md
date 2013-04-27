@@ -3,7 +3,7 @@
 A Library to map one NSDictionary to another that can transform BOTH keys and values with a single map. It also allows you to decouple any formatting you may have to do from one representation of data to another (eg. rest api -> internal model representation).
 
 #####sidenote
-In trying to allow for as much customisation as possible, this tiny library makes very little assumptions which means you must be somewhat verbose. But see [convenience methods](#convenience methods) that should greatly reduce code for the simpler cases.
+In trying to allow for as much customisation as possible, this tiny library makes very little assumptions which means you must be somewhat verbose. But see [convenience methods](#convenience-methods) that should greatly reduce code for the simpler cases.
 
 ##Installation
 
