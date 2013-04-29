@@ -255,3 +255,12 @@ This `mappingDict` can now be used in
 ##License
 
 **MIT**
+
+##Contribution
+
+Is welcome!!
+
+- start a conversation in issues / make a pull request if you have code
+- KVMapper is tested with [Kiwi](https://github.com/allending/Kiwi) so adding tests to your code would be nice, (also feel free to use OCUnit if you prefer)
+
+Eternal thanks
