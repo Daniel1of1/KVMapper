@@ -221,6 +221,21 @@ describe(@"object mapper", ^{
             [[obj1 should] equal:obj2];
         }
     });
+    
+    it(@"can accept an object to map to a dictionary", ^{
+        NSDictionary *objectMapperDict=@{};
+        
+        NSDictionary *correctDict=@{@"streetName" : @"Batman avenue",
+                                    @"houseNumber" : @1};
+
+        TestAddress *testAddress =[[TestAddress alloc] init];
+        testAddress.streetName=@"Batman avenue";
+        testAddress.houseNumber=@1;
+        NSDictionary *dictFromObject=[KVMapper dictionaryFromObject:testAddress mappingDictionary:objectMapperDict];
+        
+        [[dictFromObject should] equal:correctDict];
+        
+    });
 
 });
 

@@ -19,4 +19,6 @@
 
 +(NSDictionary *)mappedDictionaryWithInputDictionary:(NSDictionary *)inputDict mappingDictionary:(NSDictionary *)mappingDict;
 
++(NSDictionary *)dictionaryFromObject:(id)inputObject mappingDictionary:(NSDictionary *)mappingDictionary;
+
 @end

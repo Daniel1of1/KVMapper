@@ -8,6 +8,7 @@
 
 #import "KVMapper.h"
 #import "KVMap.h"
+#import "NSObject+introspect.h"
 
 @implementation KVMapper
 
@@ -54,6 +55,13 @@
     }];
     
     return mappedDict;
+}
+
++(NSDictionary *)dictionaryFromObject:(id)inputObject mappingDictionary:(NSDictionary *)mappingDictionary{
+    NSDictionary *dict=[inputObject propertiesDict];
+    
+    return [self mappedDictionaryWithInputDictionary:dict mappingDictionary:mappingDictionary];
+
 }
 
 @end
