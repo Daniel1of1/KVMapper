@@ -248,8 +248,34 @@ describe(@"object mapper", ^{
         
     });
     
+    
+    it(@"can map dictionary to an object", ^{
+        
+        KVMap *streetNameMap=[[KVMap alloc] initWithKeyTransformationBlock:^NSString *(NSString *inputString) {
+            return @"streetName";
+        } valueTransformationBlock:nil];
+        
+        KVMap *houseNumMap=[[KVMap alloc] initWithKeyTransformationBlock:nil valueTransformationBlock:^id(id inputValue) {
+            return [NSNumber numberWithInt:[inputValue intValue]-1];
+        }];
+        
+        TestAddress *correctAddress =[[TestAddress alloc] init];
+        correctAddress.streetName=@"Batman avenue";
+        correctAddress.houseNumber=@1;
+        
+        NSDictionary *inputDict=@{@"street_name" : @"Batman avenue",
+                                    @"houseNumber" : @2};
 
-
+        
+        NSDictionary *objectMapperDict=@{@"street_name" : streetNameMap,
+                                         @"houseNumber" : houseNumMap};
+        
+        TestAddress *objectFromDict=(TestAddress *)[KVMapper objectFromDictionary:inputDict mappingDictionary:objectMapperDict class:[TestAddress class]];
+        
+        [[objectFromDict should] equal:correctAddress];
+        
+    });
+    
 
 });
 

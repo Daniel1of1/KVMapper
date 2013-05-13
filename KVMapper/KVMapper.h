@@ -21,4 +21,6 @@
 
 +(NSDictionary *)dictionaryFromObject:(id)inputObject mappingDictionary:(NSDictionary *)mappingDictionary;
 
++(id)objectFromDictionary:(NSDictionary *)inputDictionay mappingDictionary:(NSDictionary *)mappingDict class:(__unsafe_unretained Class)class;
+
 @end

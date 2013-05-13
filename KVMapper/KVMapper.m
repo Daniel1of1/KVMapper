@@ -64,4 +64,11 @@
 
 }
 
++(id)objectFromDictionary:(NSDictionary *)inputDictionay mappingDictionary:(NSDictionary *)mappingDict class:(__unsafe_unretained Class)class{
+    NSDictionary *mappedDict=[self mappedDictionaryWithInputDictionary:inputDictionay mappingDictionary:mappingDict];
+    id object=[[class alloc] init];
+    [object setValuesForKeysWithDictionary:mappedDict];
+    return object;
+}
+
 @end
