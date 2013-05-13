@@ -3,7 +3,7 @@
 A Library to map one NSDictionary to another that can transform BOTH keys and values with a single map. It also allows you to decouple any formatting you may have to do from one representation of data to another (eg. rest api -> internal model representation).
 
 #####sidenote
-In trying to allow for as much customisation as possible, this tiny library makes very little assumptions which means you must be somewhat verbose. But see [convenience methods](#convenience methods) that should greatly reduce code for the simpler cases.
+In trying to allow for as much customisation as possible, this tiny library makes very little assumptions which means you must be somewhat verbose. But see [convenience methods](#convenience-methods) that should greatly reduce code for the simpler cases.
 
 ##Installation
 
@@ -255,3 +255,12 @@ This `mappingDict` can now be used in
 ##License
 
 **MIT**
+
+##Contribution
+
+Is welcome!!
+
+- start a conversation in issues / make a pull request if you have code
+- KVMapper is tested with [Kiwi](https://github.com/allending/Kiwi) so adding tests to your code would be nice, (also feel free to use OCUnit if you prefer)
+
+Eternal thanks
