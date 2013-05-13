@@ -223,10 +223,21 @@ describe(@"object mapper", ^{
     });
     
     it(@"can accept an object to map to a dictionary", ^{
-        NSDictionary *objectMapperDict=@{};
         
-        NSDictionary *correctDict=@{@"streetName" : @"Batman avenue",
-                                    @"houseNumber" : @1};
+        KVMap *streetNameMap=[[KVMap alloc] initWithKeyTransformationBlock:^NSString *(NSString *inputString) {
+            return @"street_name";
+        } valueTransformationBlock:nil];
+        
+        KVMap *houseNumMap=[[KVMap alloc] initWithKeyTransformationBlock:nil valueTransformationBlock:^id(id inputValue) {
+            return [NSNumber numberWithInt:[inputValue intValue]+1];
+        }];
+
+        
+        NSDictionary *objectMapperDict=@{@"streetName" : streetNameMap,
+                                         @"houseNumber" : houseNumMap};
+        
+        NSDictionary *correctDict=@{@"street_name" : @"Batman avenue",
+                                    @"houseNumber" : @2};
 
         TestAddress *testAddress =[[TestAddress alloc] init];
         testAddress.streetName=@"Batman avenue";
@@ -236,6 +247,9 @@ describe(@"object mapper", ^{
         [[dictFromObject should] equal:correctDict];
         
     });
+    
+
+
 
 });
 
