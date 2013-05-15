@@ -276,6 +276,66 @@ describe(@"object mapper", ^{
         
     });
     
+    
+    it(@"can map NSNulls to nils", ^{
+        
+        NSDictionary *dictToMap=@{@"firstName" : @"bob", @"LastName" : @"smith", @"middle_name" : @"middle" , @"mySUPERmiddleNaMe" : @"super-middley", @"address" : @{@"street_name" : @"love street", @"house_number" : @123} , @"arrayOfStuff" : @[@1,@2,@3,@4], @"array_of_addresses":@[@{@"street_name" : @"love street", @"house_number" : @14354},@{@"street_name" : @"love street", @"house_number" : @123}]};
+
+        
+        //basic mapping
+        NSMutableDictionary *personMapping=[[KVMapper mappingDictionaryForKeys:dictToMap.allKeys defaultKeyTransformer:^NSString *(NSString *inKey) {
+            return [Transformers snakeToLlamaCase:inKey];
+        }] mutableCopy];
+        
+        //mappingDict for address class
+        NSMutableDictionary *addressMappingDict=[[KVMapper mappingDictionaryForKeys:@[@"street_name",@"house_number"] defaultKeyTransformer:^NSString *(NSString *inKey) {
+            return [Transformers snakeToLlamaCase:inKey];
+        }] mutableCopy];
+        
+        //map for address key
+        KVMap *addressMap=[[KVMap alloc] init];
+        addressMap.valueTransformationBlock=(id)^(NSDictionary *inputDict){
+            NSDictionary *properAddressDict=[KVMapper mappedDictionaryWithInputDictionary:inputDict mappingDictionary:addressMappingDict];
+            return [TestAddress objectWithDictionary:properAddressDict];
+        };
+        
+        //mapping for superMiddleName
+        KVMap *superMiddleNameMap=[[KVMap alloc] init];
+        superMiddleNameMap.keyTransformationBlock=^(NSString *inputKey){return @"mySuperMiddleName";};
+        
+        //mapping for addrassArray
+        KVMap *addressArrayMap=[[KVMap alloc] init];
+        addressArrayMap.keyTransformationBlock=^(NSString *inputKey){return [Transformers snakeToLlamaCase:inputKey];};
+        
+        addressArrayMap.valueTransformationBlock=(id)^(NSArray *input){
+            NSMutableArray *newArray=[NSMutableArray array];
+            for (id object in input) {
+                [newArray addObject:[TestAddress objectWithDictionary:[KVMapper mappedDictionaryWithInputDictionary:object mappingDictionary:addressMappingDict]]];
+            }
+            return newArray;
+        };
+        
+        KVMap *fNameMap=[[KVMap alloc] initWithKeyTransformationBlock:nil valueTransformationBlock:nil removeNulls:TRUE];
+        
+        
+        NSDictionary *objectMapperDict=@{
+                                         @"firstName" : fNameMap,
+                                         @"mySUPERmiddleNaMe" : superMiddleNameMap,
+                                         @"address" : addressMap,
+                                         @"array_of_addresses" : addressArrayMap
+                                         };
+        
+        [personMapping addEntriesFromDictionary:objectMapperDict];
+        
+
+        NSDictionary *correctDict=@{@"firstName" :[NSNull null], @"lastName" : @"smith", @"middleName" : @"middle" , @"mySuperMiddleName" : @"super-middley", @"address" :[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @123}]  , @"arrayOfStuff" : @[@1,@2,@3,@4], @"arrayOfAddresses":@[[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @14354}],[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @123}]]};
+        
+        NSDictionary *mappedDict=[KVMapper mappedDictionaryWithInputDictionary:dictToMap mappingDictionary:personMapping];
+        
+        [[mappedDict objectForKey:@"firstName"] shouldBeNil];
+
+        
+    });
 
 });
 

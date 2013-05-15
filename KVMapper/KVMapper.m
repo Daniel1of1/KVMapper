@@ -37,6 +37,10 @@
     NSString *mappedKey=objectMap.keyTransformationBlock ?objectMap.keyTransformationBlock(key): key;
     id mappedValue=objectMap.valueTransformationBlock ?objectMap.valueTransformationBlock(value): value;
     
+    if (objectMap.removeNulls) {
+        return nil;
+    }
+    
     NSDictionary *dict=@{mappedKey : mappedValue};
     
     return dict;

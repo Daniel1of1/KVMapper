@@ -11,10 +11,14 @@
 @implementation KVMap
 
 -(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^)(id))valueTransformationBlock{
-    
+    return [self initWithKeyTransformationBlock:keyTransformationBlock valueTransformationBlock:valueTransformationBlock removeNulls:FALSE];
+}
+
+-(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^) (id))valueTransformationBlock removeNulls:(BOOL)removeNulls{
     if (self==[super init]) {
-        self.keyTransformationBlock=keyTransformationBlock;
-        self.valueTransformationBlock=valueTransformationBlock;
+        _keyTransformationBlock=keyTransformationBlock;
+        _valueTransformationBlock=valueTransformationBlock;
+        _removeNulls=removeNulls;
     }
     return self;
 }

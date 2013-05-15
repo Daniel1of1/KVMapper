@@ -12,7 +12,9 @@
 
 @property (nonatomic, copy) NSString *(^keyTransformationBlock)(NSString *);
 @property (nonatomic, copy) id (^valueTransformationBlock)(id);
+@property (nonatomic) BOOL removeNulls;
 
 -(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^) (id))valueTransformationBlock;
+-(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^) (id))valueTransformationBlock removeNulls:(BOOL)removeNulls;
 
 @end
