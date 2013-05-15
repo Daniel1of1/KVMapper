@@ -34,13 +34,13 @@
 }
 
 +(NSDictionary *)mappedKey:(NSString *)key andValue:(id)value withMapping:(KVMap *)objectMap{
-    NSString *mappedKey=objectMap.keyTransformationBlock ?objectMap.keyTransformationBlock(key): key;
-    id mappedValue=objectMap.valueTransformationBlock ?objectMap.valueTransformationBlock(value): value;
-    
-    if (objectMap.removeNulls) {
+    if (objectMap.removeNulls && value==[NSNull null]) {
         return nil;
     }
-    
+
+    NSString *mappedKey=objectMap.keyTransformationBlock ?objectMap.keyTransformationBlock(key): key;
+    id mappedValue=objectMap.valueTransformationBlock ?objectMap.valueTransformationBlock(value): value;
+
     NSDictionary *dict=@{mappedKey : mappedValue};
     
     return dict;
@@ -50,13 +50,15 @@
     
     NSMutableDictionary *mappedDict=[NSMutableDictionary dictionary];
     
-    [inputDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    for (NSString *key in inputDict.allKeys) {
         //create the new key-value pair
-        NSDictionary *mappedKVPair=[self mappedKey:key andValue:obj withMapping:mappingDict[key]];
+        NSDictionary *mappedKVPair=[self mappedKey:key andValue:inputDict[key] withMapping:mappingDict[key]];
         // add the new value to our new dictionary
         [mappedDict addEntriesFromDictionary:mappedKVPair];
         
-    }];
+    }
+    
+
     
     return mappedDict;
 }

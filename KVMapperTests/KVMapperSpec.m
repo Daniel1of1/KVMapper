@@ -279,7 +279,7 @@ describe(@"object mapper", ^{
     
     it(@"can map NSNulls to nils", ^{
         
-        NSDictionary *dictToMap=@{@"firstName" : @"bob", @"LastName" : @"smith", @"middle_name" : @"middle" , @"mySUPERmiddleNaMe" : @"super-middley", @"address" : @{@"street_name" : @"love street", @"house_number" : @123} , @"arrayOfStuff" : @[@1,@2,@3,@4], @"array_of_addresses":@[@{@"street_name" : @"love street", @"house_number" : @14354},@{@"street_name" : @"love street", @"house_number" : @123}]};
+        NSDictionary *dictToMap=@{@"firstName" : @"bob", @"LastName" : @"smith", @"middle_name" : @"middle" , @"mySUPERmiddleNaMe" : @"super-middley", @"address" : [NSNull null] , @"arrayOfStuff" : @[@1,@2,@3,@4], @"array_of_addresses":@[@{@"street_name" : @"love street", @"house_number" : @14354},@{@"street_name" : @"love street", @"house_number" : @123}]};
 
         
         //basic mapping
@@ -315,11 +315,9 @@ describe(@"object mapper", ^{
             return newArray;
         };
         
-        KVMap *fNameMap=[[KVMap alloc] initWithKeyTransformationBlock:nil valueTransformationBlock:nil removeNulls:TRUE];
-        
+        addressMap.removeNulls=TRUE;
         
         NSDictionary *objectMapperDict=@{
-                                         @"firstName" : fNameMap,
                                          @"mySUPERmiddleNaMe" : superMiddleNameMap,
                                          @"address" : addressMap,
                                          @"array_of_addresses" : addressArrayMap
@@ -327,12 +325,11 @@ describe(@"object mapper", ^{
         
         [personMapping addEntriesFromDictionary:objectMapperDict];
         
-
-        NSDictionary *correctDict=@{@"firstName" :[NSNull null], @"lastName" : @"smith", @"middleName" : @"middle" , @"mySuperMiddleName" : @"super-middley", @"address" :[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @123}]  , @"arrayOfStuff" : @[@1,@2,@3,@4], @"arrayOfAddresses":@[[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @14354}],[TestAddress objectWithDictionary:@{@"streetName" : @"love street", @"houseNumber" : @123}]]};
         
         NSDictionary *mappedDict=[KVMapper mappedDictionaryWithInputDictionary:dictToMap mappingDictionary:personMapping];
         
-        [[mappedDict objectForKey:@"firstName"] shouldBeNil];
+        [((TestAddress *)[mappedDict objectForKey:@"address"]) shouldBeNil];
+        [[[mappedDict objectForKey:@"arrayOfAddresses"] objectAtIndex:0] shouldNotBeNil];
 
         
     });
