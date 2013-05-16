@@ -176,7 +176,7 @@ Writing out all the mapping logic can quickly become tedious, especially when we
 
 so KVMapper has: `KVMapsForKeys:defaultKeyTransformer:` and `KVMapsForKeys:defaultKeyTransformer:defaultValueTransformer:`
 
-so suppose we want to create a mappingDictionary for where all the keys are transformed to lowerCase and all the values (which we get as strings) are NSURLs.
+so suppose we want to create a mappingDictionary for where all the keys are transformed to llamaCase and all the values (which we get as strings) are NSURLs.
 
 ```
         NSDictionary *mappingDict=[KVMapper mappingDictionaryForKeys:testDict.allKeys
