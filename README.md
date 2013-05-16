@@ -12,7 +12,7 @@ In trying to allow for as much customisation as possible, this tiny library make
 add to your podfile:
 
 ```
-Pod 'KVMapper' '~>0.1'
+Pod 'KVMapper' '~>0.3'
 ```
 ###manual
 
