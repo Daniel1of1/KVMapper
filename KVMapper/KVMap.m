@@ -15,7 +15,7 @@
 }
 
 -(id)initWithKeyTransformationBlock:(NSString *(^)(NSString *))keyTransformationBlock valueTransformationBlock:(id (^) (id))valueTransformationBlock removeNulls:(BOOL)removeNulls{
-    if (self==[super init]) {
+    if (self=[super init]) {
         _keyTransformationBlock=keyTransformationBlock;
         _valueTransformationBlock=valueTransformationBlock;
         _removeNulls=removeNulls;
